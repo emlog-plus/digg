@@ -217,12 +217,7 @@ addAction('index_head', 'digg_css');
 addAction('index_head', 'digg_script_init');
 ?>
 <?php function digg_init() {
-	global $DB;
-	if ( mysql_fetch_array( $DB->query( "Describe ".DB_PREFIX."blog digg" ) ) == false ) {
-			$sql = "ALTER TABLE ".DB_PREFIX."blog ADD digg varchar(10) NOT NULL DEFAULT '0,0'";
-			$DB->query($sql);
-	} 
-	function digg_db ( $logid ) {
+      function digg_db ( $logid ) {
 		global $DB;
 		if ( $logid ) {
 			 $sql = "SELECT digg FROM " . DB_PREFIX . "blog WHERE gid=$logid";
